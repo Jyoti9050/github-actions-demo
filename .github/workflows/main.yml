@@ -9,10 +9,18 @@ jobs:
    terraform:
     name: Terraform Deployment
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Install Terraform Docs
+        uses: terraform-docs/gh-actions@v1.4.1
+        with:
+          working-dir: terraform
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -38,19 +46,7 @@ jobs:
         run: terraform plan -out=tfplan
         working-directory: terraform
 
-   #   - name: Apply Terraform
-   #     run: terraform destroy -auto-approve
-   #     working-directory: terraform 
-   generate-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Generate Terraform Docs
-        uses: terraform-docs/gh-actions@v1.4.1
-        with:
-          working-dir: .
-          module: terraform
-          output-file: README.md
-          output-method: inject
-          git-push: "true"     
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
+        working-directory: terraform 
+ 
