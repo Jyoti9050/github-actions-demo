@@ -18,8 +18,8 @@ jobs:
         uses: terraform-docs/gh-actions@v1.4.1
         with:
           working-dir: .
-          module: ./terraform
-          output-file: ../README.md
+          module: terraform
+          output-file: README.md
           output-method: inject
           git-push: "true"
 
