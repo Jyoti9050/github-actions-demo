@@ -12,7 +12,6 @@ resource "aws_instance" "cloudndevops_pipeline_ec2" {
 
 resource "aws_s3_bucket" "cloudndevops" {
   bucket = "cloudndevops-github-actions-terraform-bucket"
-  acl    = "private"
 }
 
 resource "aws_s3_object" "object-data"{
