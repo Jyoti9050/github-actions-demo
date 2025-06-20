@@ -1,3 +1,4 @@
 variable "aws_region" {
-  default = "us-east-1"
+description = "value of a Region"
+default     = "us-east-1"      # Change to your preferred region
 }
