@@ -39,7 +39,7 @@ resource "aws_route_table" "my-rt" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.my_igw.id
+    gateway_id = aws_internet_gateway.my-igw.id
   }
 }
 
