@@ -21,7 +21,7 @@ resource "aws_subnet" "public-subnet" {
   vpc_id                  = aws_vpc.my-vpc.id
   map_public_ip_on_launch = true
   tags = {
-    Name = "private-subnet"
+    Name = "public-subnet"
   }
 }
 
@@ -29,7 +29,7 @@ resource "aws_subnet" "public-subnet" {
 resource "aws_internet_gateway" "my-igw" {
   vpc_id = aws_vpc.my-vpc.id
   tags = {
-    Name = "private-subnet"
+    Name = "my-igw"
   }
 }
 
