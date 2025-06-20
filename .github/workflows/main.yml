@@ -13,15 +13,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        
-      - name: Install Terraform Docs
-        uses: terraform-docs/gh-actions@v1.4.1
-        with:
-          working-dir: .
-          module: terraform
-          output-file: README.md
-          output-method: inject
-          git-push: "true"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
@@ -49,4 +40,12 @@ jobs:
 
    #   - name: Apply Terraform
    #     run: terraform destroy -auto-approve
-   #     working-directory: terraform
+   #     working-directory: terraform 
+      - name: Install Terraform Docs
+        uses: terraform-docs/gh-actions@v1.4.1
+        with:
+          working-dir: .
+          module: terraform
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
