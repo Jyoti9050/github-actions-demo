@@ -16,6 +16,6 @@ resource "aws_security_group" "nginx-sg" {
   }
 
   tags = {
-    Nmae       = "nginx-sg"
+    Name       = "nginx-sg"
   }
 }
